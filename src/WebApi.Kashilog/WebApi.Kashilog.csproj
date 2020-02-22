@@ -13,8 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MicroORMWrapper" Version="0.2.1-beta" />
-    <PackageReference Include="MicroORMWrapper.Extensions.DependencyInjection" Version="0.2.1-beta" />
+    <PackageReference Include="MicroORMWrapper" Version="0.4.2-beta" />
+    <PackageReference Include="MicroORMWrapper.Extensions.DependencyInjection" Version="0.4.1-beta" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
     <PackageReference Include="Service.Extensions.DependencyInjection" Version="0.2.1-beta" />
     <PackageReference Include="Swagger.Extensions.DependencyInjection" Version="0.2.1-beta" />
@@ -49,6 +49,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SqlForProductResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configurations\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

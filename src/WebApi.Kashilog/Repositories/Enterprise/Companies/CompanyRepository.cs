@@ -3,15 +3,14 @@ using Service.Extensions.DependencyInjection.Markers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApi.Kashilog.DomainObjects.Enterprise;
+using WebApi.Kashilog.Repositories.DatabaseConnections;
 using WebApi.Kashilog.Repositories.Enterprise.Companies.Sqls;
 
 namespace WebApi.Kashilog.Repositories.Enterprise.Companies {
     public class CompanyRepository : IRepository {
-        private SqlManager SqlManager { get; }
+        private SqlManager<KashilogConnection> SqlManager { get; }
 
-        public CompanyRepository(SqlManager sqlManager) {
-            SqlManager = sqlManager;
-        }
+        public CompanyRepository(SqlManager<KashilogConnection> sqlManager) => SqlManager = sqlManager;
 
         public Task<IEnumerable<Company>> FindAllCompanyAsync() {
             return SqlManager.SelectAsync<Company>(SqlForCompanyResource.FindAllCompany);
