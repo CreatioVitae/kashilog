@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+    kashilog-sql-server:
+      image: microsoft/mssql-server-linux:latest
+      container_name: KashilogLocal
+      ports:
+        - 15331:1433
+      environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=hoge
+        - MSSQL_PID=Developer
+        - MSSQL_LCID=1041
