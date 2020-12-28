@@ -1,0 +1,23 @@
+FROM mcr.microsoft.com/mssql/server:2019-latest as Builder
+
+ENV ACCEPT_EULA Y
+ENV SA_PASSWORD h0geFuga
+ENV MSSQL_PID Developer
+ENV MSSQL_LCID 1041
+ENV MSSQL_MEMORY_LIMIT_MB 4000
+
+USER root
+
+RUN apt-get update \
+    && apt-get install unzip -y
+
+RUN wget -progress=bar:force -q -O sqlpackage.zip https://go.microsoft.com/fwlink/?linkid=873926 \
+    && unzip -qq sqlpackage.zip -d /opt/sqlpackage \
+    && chmod +x /opt/sqlpackage/sqlpackage
+
+COPY MSSql/KashiLogDB.dacpac /tmp/kashilogdb.dacpac
+
+RUN ( /opt/mssql/bin/sqlservr & ) | grep -q "Service Broker manager has started" \
+    && /opt/sqlpackage/sqlpackage /a:Publish /tsn:localhost /tec:False /tdn:KashiLogDB /tu:sa /tp:h0geFuga /sf:/tmp/kashilogdb.dacpac \
+    && rm /tmp/kashilogdb.dacpac \
+    && pkill sqlservr
