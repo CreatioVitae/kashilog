@@ -31,7 +31,7 @@ RUN apt-get update \
     && chmod +x /opt/sqlpackage/sqlpackage
 
 # dacpacファイルのコピー
-COPY MSSql/KashiLogDB.dacpac /tmp/kashilogdb.dacpac
+COPY KashiLogDB.dacpac /tmp/kashilogdb.dacpac
 
 # dacpacファイルから復元
 # SQLServerをバックグラウンド実行し、開始したことを確認できたことを保証するためのコマンド
