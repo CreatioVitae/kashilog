@@ -1,0 +1,44 @@
+# SQLServer2019のimageを引っ張ってくる
+FROM mcr.microsoft.com/mssql/server:2019-latest as Builder
+
+# 使用許諾契約書に同意する意思の表示
+ENV ACCEPT_EULA Y
+# saユーザーのパスワード指定
+ENV SA_PASSWORD h0geFuga
+# SQLServerのエディションを明示的にDeveloperに指定
+ENV MSSQL_PID Developer
+# 言語IDを日本語に指定
+ENV MSSQL_LCID 1041
+# メモリの上限サイズを4GBに指定
+ENV MSSQL_MEMORY_LIMIT_MB 4000
+
+# apt-get updateを実行するためにRootUserを指定
+USER root
+
+# sqlpackageをインストール
+# apt-getするために、パッケージインデックスファイルを更新（取得）
+RUN apt-get update \
+    # unzipとcurlのインストール(-y で「すべてはい」にする)
+    && apt-get install unzip curl -y \
+    # sqlPackageのダウンロード
+    # -Lでロケーションの指定。
+    # -qでFTPに対するコマンドとして扱うようにする。（合わせることでダウンロードしてこれる）
+    # -oで出力先のファイル名指定 )
+    && curl -Lq https://go.microsoft.com/fwlink/?linkid=873926 -o sqlpackage.zip \
+    # ダウンロードしたsqlpackageを展開(-qqで動作中のメッセージをすごく減らす（普通に減らす分には-qのみ))
+    && unzip -qq sqlpackage.zip -d /opt/sqlpackage \
+    # sqlpackageに権限付与(+xで実行権限付与)
+    && chmod +x /opt/sqlpackage/sqlpackage
+
+# bacpacファイルのコピー
+COPY MSSql/KashiLogDB.bacpac /tmp/kashilogdb.bacpac
+
+# dacpacファイルから復元
+# SQLServerをバックグラウンド実行し、開始したことを確認できたことを保証するためのコマンド
+RUN ( /opt/mssql/bin/sqlservr & ) | grep -q "Service Broker manager has started" \
+    # dacpacファイルの取り込み
+    && /opt/sqlpackage/sqlpackage /a:Import /tsn:localhost /tec:False /tdn:KashiLogDB /tu:sa /tp:h0geFuga /sf:/tmp/kashilogdb.bacpac \
+    # コピーしたdacpacファイルの削除
+    && rm /tmp/kashilogdb.bacpac \
+    # やること終ったので、プロセスをキル
+    && pkill sqlservr

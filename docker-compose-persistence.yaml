@@ -2,12 +2,17 @@ version: '3.7'
 
 services:
     kashilog-sql-server:
-      image: microsoft/mssql-server-linux:latest
-      container_name: KashilogLocal
+      build:
+        context: ./Databases
+        dockerfile: DockerFile.local
+      container_name: KashilogLocalDB
       ports:
         - 15331:1433
-      environment:
-        - ACCEPT_EULA=Y
-        - SA_PASSWORD=hoge
-        - MSSQL_PID=Developer
-        - MSSQL_LCID=1041
+    kashilog-test-sql-server:
+      build:
+        context: ./Databases
+        dockerfile: DockerFile.test
+      container_name: KashilogTestDB
+      ports:
+        - 15332:1433
+
