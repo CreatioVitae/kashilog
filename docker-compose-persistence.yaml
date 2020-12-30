@@ -4,14 +4,14 @@ services:
     kashilog-sql-server:
       build:
         context: ./Databases/MSSql/DevLocal
-        dockerfile: DockerFile
+        dockerfile: Dockerfile
       container_name: KashilogDevLocalDB
       ports:
         - 15331:1433
     kashilog-test-sql-server:
       build:
         context: ./Databases/MSSql/Tests
-        dockerfile: DockerFile
+        dockerfile: Dockerfile
       container_name: KashilogTestDB
       ports:
         - 15332:1433
