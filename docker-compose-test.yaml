@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+    kashilog-test-sql-server:
+      build:
+        context: ./Databases/MSSql/Tests
+        dockerfile: Dockerfile
+      container_name: KashilogTestDB
+      ports:
+        - 15332:1433
+    web-api-test:
+      build:
+        context: ./tests
+        dockerfile: Dockerfile
+      container_name: KashilogTest
+      depends_on:
+        - "kashilog-test-sql-server"
+      entrypoint: "./entrypoint.sh"
