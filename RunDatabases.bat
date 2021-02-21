@@ -1,1 +1,0 @@
-docker-compose -f docker-compose-persistence.yaml up -d
