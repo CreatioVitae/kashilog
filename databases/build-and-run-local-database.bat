@@ -1,7 +1,7 @@
 @echo off
 echo Build kashilogdb And kashilogdbtest...
 
-docker build -t kashilogdb Databases/Mssql
+docker build -t kashilogdb Mssql
 
 echo Run kashilogdb And kashilogdbtest...
 

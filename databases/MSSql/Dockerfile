@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends unzip curl \
     && apt-get purge -y --auto-remove unzip \
     && rm -rf /var/lib/apt/lists/*
 
-COPY /Dacpac/KashiLogDB.dacpac /tmp/kashilogdb.dacpac
+COPY /dacpacs/KashiLogDB.dacpac /tmp/kashilogdb.dacpac
 
 # dacpacファイルから復元
 # SQLServerをバックグラウンド実行し、開始したことを確認できたことを保証するためのコマンド
