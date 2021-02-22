@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{19695C48-DCAB-4DD8-A302-21FD78CDDA31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Kashilog.Tests", "..\tests\WebApi.Kashilog.Tests\WebApi.Kashilog.Tests.csproj", "{2867B660-9AEA-4F58-A832-52D84A7FD7B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +32,10 @@ Global
 		{FBCB6504-DCCA-46E9-B08A-DDF5874C296C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBCB6504-DCCA-46E9-B08A-DDF5874C296C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBCB6504-DCCA-46E9-B08A-DDF5874C296C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2867B660-9AEA-4F58-A832-52D84A7FD7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2867B660-9AEA-4F58-A832-52D84A7FD7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2867B660-9AEA-4F58-A832-52D84A7FD7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2867B660-9AEA-4F58-A832-52D84A7FD7B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,6 +43,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FACFD191-4026-4046-A805-2732B02EF814} = {12EB1EC5-29FD-4498-A69D-3C51840CDBA1}
 		{FBCB6504-DCCA-46E9-B08A-DDF5874C296C} = {12EB1EC5-29FD-4498-A69D-3C51840CDBA1}
+		{2867B660-9AEA-4F58-A832-52D84A7FD7B6} = {19695C48-DCAB-4DD8-A302-21FD78CDDA31}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C5CFAEE9-EDD0-472C-B118-B988CC86BD3D}

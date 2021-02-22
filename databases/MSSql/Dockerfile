@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends unzip curl \
     # -Lでロケーションの指定。
     # -qでFTPに対するコマンドとして扱うようにする。（合わせることでダウンロードしてこれる）
     # -oで出力先のファイル名指定 )
-    && curl -Lq https://go.microsoft.com/fwlink/?linkid=873926 -o sqlpackage-linux-x64-latest.zip \
+    && curl -Lq https://aka.ms/sqlpackage-linux -o sqlpackage-linux-x64-latest.zip \
     && ls -alh \
     && unzip sqlpackage-linux-x64-latest.zip -d /opt/sqlpackage \
     # sqlpackageに権限付与(+xで実行権限付与)
@@ -23,11 +23,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends unzip curl \
     && apt-get purge -y --auto-remove unzip \
     && rm -rf /var/lib/apt/lists/*
 
-COPY KashiLogDB.dacpac /tmp/kashilogdb.dacpac
+COPY /dacpacs/KashiLogDB.dacpac /tmp/kashilogdb.dacpac
 
 # dacpacファイルから復元
 # SQLServerをバックグラウンド実行し、開始したことを確認できたことを保証するためのコマンド
 RUN ( /opt/mssql/bin/sqlservr --accept-eula & ) | grep -q "Service Broker manager has started" \
     && /opt/sqlpackage/sqlpackage /a:Publish /tsn:localhost /tec:False /tdn:KashiLogDB /tu:sa /tp:h0geFuga /sf:/tmp/kashilogdb.dacpac \
+    && /opt/sqlpackage/sqlpackage /a:Publish /tsn:localhost /tec:False /tdn:KashiLogDBTest /tu:sa /tp:h0geFuga /sf:/tmp/kashilogdb.dacpac \
     && rm /tmp/kashilogdb.dacpac \
     && pkill sqlservr
