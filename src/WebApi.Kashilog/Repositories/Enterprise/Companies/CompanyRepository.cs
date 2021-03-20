@@ -12,16 +12,10 @@ namespace WebApi.Kashilog.Repositories.Enterprise.Companies {
 
         public CompanyRepository(SqlManager<KashilogConnection> sqlManager) => SqlManager = sqlManager;
 
-        public Task<IEnumerable<Company>> FindAllCompanyAsync() {
-            return SqlManager.SelectAsync<Company>(SqlForCompanyResource.FindAllCompany);
-        }
+        public Task<IEnumerable<Company>> FindAllCompanyAsync() => SqlManager.SelectAsync<Company>(SqlForCompanyResource.FindAllCompany);
 
-        public Task<IEnumerable<Company>> FindCompanyByIdAsync(int id) {
-            return SqlManager.SelectAsync<Company>(SqlForCompanyResource.FindCompanyById, new { Id = id });
-        }
+        public Task<IEnumerable<Company>> FindCompanyByIdAsync(int id) => SqlManager.SelectAsync<Company>(SqlForCompanyResource.FindCompanyById, new { Id = id });
 
-        public Task<IEnumerable<Company>> FindCompanyInIdsAsync(IEnumerable<int> ids) {
-            return SqlManager.SelectAsync<Company>(SqlForCompanyResource.FindCompanyInIds, new { Ids = ids });
-        }
+        public Task<IEnumerable<Company>> FindCompanyInIdsAsync(IEnumerable<int> ids) => SqlManager.SelectAsync<Company>(SqlForCompanyResource.FindCompanyInIds, new { Ids = ids });
     }
 }

@@ -33,9 +33,7 @@ namespace WebApi.Kashilog.Services.Kashi {
 
             var referencedProductTastes = await ProductRepository.FindProductTasteInProductIdsAsync(allProductId);
 
-            static IEnumerable<int> GetReferencedCompanyIds(List<Product> allProducts) {
-                return allProducts.Select(m => m.MakerCompanyId).AsEnumerable().Union(allProducts.Select(m => m.PublisherCompanyId).AsEnumerable());
-            }
+            static IEnumerable<int> GetReferencedCompanyIds(List<Product> allProducts) => allProducts.Select(m => m.MakerCompanyId).AsEnumerable().Union(allProducts.Select(m => m.PublisherCompanyId).AsEnumerable());
 
             var referencedCompanies = await CompanyRepository.FindCompanyInIdsAsync(GetReferencedCompanyIds(allProducts).Distinct());
 
@@ -63,9 +61,7 @@ namespace WebApi.Kashilog.Services.Kashi {
 
             var referencedProductTastes = await ProductRepository.FindProductTasteInProductIdsAsync(allProductId);
 
-            static IEnumerable<int> GetReferencedCompanyIds(List<Product> allProducts) {
-                return allProducts.Select(m => m.MakerCompanyId).AsEnumerable().Union(allProducts.Select(m => m.PublisherCompanyId).AsEnumerable());
-            }
+            static IEnumerable<int> GetReferencedCompanyIds(List<Product> allProducts) => allProducts.Select(m => m.MakerCompanyId).AsEnumerable().Union(allProducts.Select(m => m.PublisherCompanyId).AsEnumerable());
 
             var referencedCompanies = await CompanyRepository.FindCompanyInIdsAsync(GetReferencedCompanyIds(allProducts).Distinct());
 
@@ -83,7 +79,7 @@ namespace WebApi.Kashilog.Services.Kashi {
 
 
         public async ValueTask<ProductResult?> GetProductByIdAsync(int id) {
-        
+
             var product = (await ProductRepository.FindProductByIdAsync(id)).SingleOrDefault();
 
             return product == null

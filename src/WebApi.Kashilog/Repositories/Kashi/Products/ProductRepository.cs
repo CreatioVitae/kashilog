@@ -11,9 +11,7 @@ namespace WebApi.Kashilog.Repositories.Kashi.Products {
 
         private SqlManager<KashilogConnection> KashilogSqlManager { get; }
 
-        public ProductRepository(SqlManager<KashilogConnection> kashilogSqlManager) {
-            KashilogSqlManager = kashilogSqlManager;
-        }
+        public ProductRepository(SqlManager<KashilogConnection> kashilogSqlManager) => KashilogSqlManager = kashilogSqlManager;
 
         public Task<IEnumerable<Product>> FindAllProductAsync() =>
             KashilogSqlManager.SelectAsync<Product>(SqlForProductResource.FindAllProduct);

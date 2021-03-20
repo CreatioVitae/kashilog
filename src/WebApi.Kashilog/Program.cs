@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
-using System.IO;
 
 namespace WebApi.Kashilog {
     public class Program {
@@ -30,14 +29,12 @@ namespace WebApi.Kashilog {
             }
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) {
-            return Host.CreateDefaultBuilder(args)
+        public static IHostBuilder CreateHostBuilder(string[] args) => Host.CreateDefaultBuilder(args)
                 .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder => {
                     webBuilder
                     .ConfigureKestrel(options => options.AddServerHeader = false)
                     .UseStartup<Startup>();
                 });
-        }
     }
 }
