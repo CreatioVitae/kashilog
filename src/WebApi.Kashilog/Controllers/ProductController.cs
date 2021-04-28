@@ -1,7 +1,7 @@
+using DomainObject.Kashilog.Kashi.QueryResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using WebApi.Kashilog.DomainObjects.Kashi.ApiResults;
 using WebApi.Kashilog.Services.Kashi;
 using WebApiPack.Controllers;
 

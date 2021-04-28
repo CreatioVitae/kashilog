@@ -1,4 +1,4 @@
-﻿namespace WebApi.Kashilog.DomainObjects.Enterprise {
+namespace DomainObject.Kashilog.Enterprise {
     public class Company {
 
         public int CompanyId { get; set; }

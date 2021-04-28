@@ -1,8 +1,8 @@
-﻿using MicroORMWrapper;
+using DomainObject.Kashilog.Enterprise;
+using MicroORMWrapper;
 using Service.Extensions.DependencyInjection.Markers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using WebApi.Kashilog.DomainObjects.Enterprise;
 using WebApi.Kashilog.Repositories.DatabaseConnections;
 using WebApi.Kashilog.Repositories.Enterprise.Companies.Sqls;
 

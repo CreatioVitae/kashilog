@@ -21,4 +21,8 @@
     <Folder Include="Views\Kashi\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\DomainObject.Kashilog\DomainObject.Kashilog.csproj" />
+  </ItemGroup>
+
 </Project>

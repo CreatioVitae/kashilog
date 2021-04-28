@@ -1,9 +1,10 @@
-﻿using System;
+using DomainObject.Kashilog.ConstantValues.Kashi;
+using DomainObject.Kashilog.Enterprise;
+using DomainObject.Kashilog.Kashi.Entities;
+using System;
 using System.Collections.Generic;
-using WebApi.Kashilog.ConstantValues.Kashi;
-using WebApi.Kashilog.DomainObjects.Enterprise;
 
-namespace WebApi.Kashilog.DomainObjects.Kashi.ApiResults {
+namespace DomainObject.Kashilog.Kashi.QueryResults {
     public class ProductResult {
         public int ProductId { get; set; }
 
@@ -32,17 +33,17 @@ namespace WebApi.Kashilog.DomainObjects.Kashi.ApiResults {
 
         public string Description { get; set; } = default!;
 
-        public Company? Maker { get; set; }
+        public Company Maker { get; set; }
 
-        public Company? Publisher { get; set; }
+        public Company Publisher { get; set; }
 
-        public IEnumerable<ProductTexture>? Textures { get; set; }
+        public IEnumerable<ProductTexture> Textures { get; set; }
 
-        public IEnumerable<ProductTaste>? Tastes { get; set; }
+        public IEnumerable<ProductTaste> Tastes { get; set; }
 
         public ProductResult(
             Product product,
-            Company? maker, Company? publisher, IEnumerable<ProductTexture>? textures, IEnumerable<ProductTaste>? tastes) {
+            Company maker, Company publisher, IEnumerable<ProductTexture> textures, IEnumerable<ProductTaste> tastes) {
 
             ProductId = product.ProductId;
 

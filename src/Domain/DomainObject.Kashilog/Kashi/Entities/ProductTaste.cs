@@ -1,4 +1,4 @@
-﻿namespace WebApi.Kashilog.DomainObjects.Kashi {
+namespace DomainObject.Kashilog.Kashi.Entities {
 
     public class ProductTaste {
         public int ProductId { get; set; }

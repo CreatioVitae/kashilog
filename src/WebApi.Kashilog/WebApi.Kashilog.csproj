@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.6.3-beta" />
     <PackageReference Include="MicroORMWrapper" Version="0.7.1-beta" />
     <PackageReference Include="MicroORMWrapper.Extensions.DependencyInjection" Version="0.7.1-beta" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
@@ -27,6 +28,10 @@
     <PackageReference Include="Swagger.Extensions.DependencyInjection" Version="0.5.1-beta" />
     <PackageReference Include="WebApiPack" Version="0.8.2-beta" />
     <PackageReference Include="WebPack.CoreLib" Version="0.8.1-beta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\DomainObject.Kashilog\DomainObject.Kashilog.csproj" />
   </ItemGroup>
 
   <ItemGroup>

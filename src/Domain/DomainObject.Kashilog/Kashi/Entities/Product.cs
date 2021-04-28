@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace WebApi.Kashilog.DomainObjects.Kashi {
+namespace DomainObject.Kashilog.Kashi.Entities {
     public class Product {
         public int ProductId { get; set; }
 
