@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Kashilog", "WebApi.Kashilog\WebApi.Kashilog.csproj", "{FACFD191-4026-4046-A805-2732B02EF814}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Kashilog", "src\WebApi.Kashilog\WebApi.Kashilog.csproj", "{FACFD191-4026-4046-A805-2732B02EF814}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Management.Kashilog", "Management.Kashilog\Management.Kashilog.csproj", "{FBCB6504-DCCA-46E9-B08A-DDF5874C296C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Management.Kashilog", "src\Management.Kashilog\Management.Kashilog.csproj", "{FBCB6504-DCCA-46E9-B08A-DDF5874C296C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{12EB1EC5-29FD-4498-A69D-3C51840CDBA1}"
 EndProject
@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{19695C48-DCAB-4DD8-A302-21FD78CDDA31}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Kashilog.Tests", "..\tests\WebApi.Kashilog.Tests\WebApi.Kashilog.Tests.csproj", "{2867B660-9AEA-4F58-A832-52D84A7FD7B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Kashilog.Tests", "tests\WebApi.Kashilog.Tests\WebApi.Kashilog.Tests.csproj", "{2867B660-9AEA-4F58-A832-52D84A7FD7B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
